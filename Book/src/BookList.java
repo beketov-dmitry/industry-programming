@@ -1,16 +1,18 @@
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-
+import java.awt.*;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Reader;
 import java.io.Writer;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Iterator;
+import java.util.*;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.toList;
+import static java.util.stream.Collectors.toSet;
 
 public class BookList implements Iterable{
     public ArrayList<Book> books;
@@ -47,16 +49,8 @@ public class BookList implements Iterable{
         writer.close();
     }
     public void groupByAuthor(String jsonFileName) throws IOException {
-        HashMap<String, ArrayList<String>> map = new HashMap<>();
+        Map<String, List<Book>> map = books.stream().collect(Collectors.groupingBy(Book::getNameAuthor, toList()));
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        for(var x : books){
-           if(!map.containsKey(x.nameAuthor)){
-               map.put(x.nameAuthor, new ArrayList<String>());
-               map.get(x.nameAuthor).add(x.nameBook);
-           } else {
-               map.get(x.nameAuthor).add(x.nameBook);
-           }
-        }
         Writer writer = Files.newBufferedWriter(Paths.get(jsonFileName));
         gson.toJson(map, writer);
         writer.close();

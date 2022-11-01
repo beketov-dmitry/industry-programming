@@ -1,12 +1,28 @@
 {
   "Gregori Luczin": [
-    "C++"
+    {
+      "nameBook": "C++",
+      "nameAuthor": "Gregori Luczin"
+    },
+    {
+      "nameBook": "C++",
+      "nameAuthor": "Gregori Luczin"
+    }
   ],
   "Bob Marley": [
-    "JavaScript"
+    {
+      "nameBook": "JavaScript",
+      "nameAuthor": "Bob Marley"
+    }
   ],
   "Stephen King": [
-    "11.22.63",
-    "it"
+    {
+      "nameBook": "11.22.63",
+      "nameAuthor": "Stephen King"
+    },
+    {
+      "nameBook": "it",
+      "nameAuthor": "Stephen King"
+    }
   ]
 }

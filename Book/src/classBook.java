@@ -18,6 +18,12 @@ class Book implements Comparable<Book>{
         nameBook = name_;
         nameAuthor = Author_;
     }
+    public String getNameAuthor(){
+        return nameAuthor;
+    }
+    public String getNameBook(){
+        return nameBook;
+    }
     public void toJson(String filename) throws IOException {
         FileWriter out = new FileWriter(filename);
         GsonBuilder builder = new GsonBuilder();

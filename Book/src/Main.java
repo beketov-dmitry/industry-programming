@@ -14,6 +14,7 @@ public class  Main{
     public static void main(String[] args) throws IOException {
         var books = new BookList();
         books.Add(new Book("C++", "Gregori Luczin"));
+        books.Add(new Book("C++", "Gregori Luczin"));
         books.Add(new Book("JavaScript", "Bob Marley"));
         books.Add(new Book("11.22.63", "Stephen King"));
         books.Add(new Book("it", "Stephen King"));
@@ -40,8 +41,8 @@ public class  Main{
             System.out.println(x.toString());
         }
         System.out.println();
-        var bookFiler = books.FindBooksByAuthorStream("Stephen King");
-        for(var x : bookFiler){
+        var bookFilter = books.FindBooksByAuthorStream("Stephen King");
+        for(var x : bookFilter){
             System.out.println(x.toString());
         }
         books.groupByAuthor("output.json");
